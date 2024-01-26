@@ -1,0 +1,178 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap');
+
+
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html{
+  font-size: 62.5%;
+}
+
+body{
+  font-size: 1.6rem;
+  font-family: 'Poppins', sans-serif;
+}
+
+.section{
+  width: 50%;
+  margin: 1.5rem auto ;
+  border: .2rem solid gray;
+  border-radius: 1rem;
+}
+
+.balanceWrapper{
+  padding: 2rem;
+  display: flex;
+  gap: 1rem;
+  justify-content: end;
+  align-items: center;
+}
+.balance, .income, .expense{
+  width: fit-content;
+  font-weight: bold;
+  text-transform: uppercase;
+  color: rgb(2, 69, 2);
+}
+.amount{
+  border: .1rem solid gray;
+  width: fit-content;
+  padding: .2rem 1rem .2rem .2rem;
+  border-radius: .5rem;
+}
+.incomeContainer{
+  display: flex;
+  justify-content: space-evenly;
+  padding: 2rem;
+}
+.wrps{
+  width: fit-content;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+.income{
+  color: rgb(2, 69, 2);
+}
+.expense{
+  color: rgb(160, 4, 4);
+}
+.transactionContainer{
+  padding: 2rem;
+  margin-bottom: 2rem;
+}
+.transHeading{
+  margin-bottom: 2rem;
+  color: rgb(74, 73, 73);
+}
+.transWrapper{
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2rem;
+  max-height: 40rem;
+  overflow-y: scroll;
+  scroll-behavior: smooth;
+}
+.transaction{
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+}
+.transaction:hover .icon{
+  visibility: visible;
+}
+.icon{
+  width: 5%;
+  color: rgb(160, 4, 4);
+  visibility: hidden;
+  cursor: pointer;
+}
+.transAmount{
+  width: 25%;
+  font-weight: 600;
+}
+.transName{
+  width: 60%;
+}
+.addTransContainer, .currencyWrp{
+  padding: 2rem;
+}
+.form> input{
+  width: 70%;
+  height: 3rem;
+  padding: .5rem;
+  outline: none;
+  margin-bottom: 2rem;
+  border-radius: .3rem;
+  border: none;
+  border-bottom: .1rem solid rgb(139, 137, 137);
+  cursor: pointer;
+}
+.selectWrp{
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+  margin-bottom: 2rem;
+}
+.selectWrp> select{
+  padding: .5rem;
+  font-size: 1.6rem;
+  outline: none;
+  border-radius: .5rem;
+  cursor: pointer;
+}
+.submit{
+  padding: .5rem;
+  border-radius: .5rem;
+  outline: none;
+  border: none;
+  background-color: rgb(74, 73, 73);
+  color: white;
+  cursor: pointer;
+}
+
+/* ........Media query......... */
+
+@media screen and (max-width: 900px){
+  .section{
+    width: 80%;
+  }
+}
+
+@media screen and (max-width: 600px){
+  .section{
+    width: 100%;
+  }
+  .incomeContainer{
+    flex-wrap: wrap;
+  }
+  
+  .wrps{
+    gap: 1rem;
+  }
+}
+
+@media screen and (max-width: 480px){
+  .form> input{
+    width: 100%;
+  }
+}
+
+@media screen and (max-width: 406px){
+  .incomeContainer{
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    row-gap: 1rem;
+  }
+  .selectWrp{
+    flex-wrap: wrap;
+    gap: 1rem;
+  }
+  .transAmount{
+    word-break: break-all;
+  }
+  
+}

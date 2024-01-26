@@ -2,7 +2,7 @@ import AddTransaction from "./components/AddTransaction"
 import Balance from "./components/Balance"
 import Income from "./components/Income"
 import Transaction from "./components/Transaction"
-import { useState } from "react"
+import { useState, useRef } from "react"
 
 
 function App() {
@@ -17,13 +17,20 @@ function App() {
   const [expenses, setExpenses] = useState(0);
   const [incomes, setIncomes] = useState(0);
   const [balance, setBalance] = useState(0);
-  const [currency, setCurrency] = useState('')
-  const [retrieveCur, setRetrieveCur] = useState(localStorage.getItem('currency') || 'dollar')
+  const [currency, setCurrency] = useState('');
+  const [retrieveCur, setRetrieveCur] = useState(localStorage.getItem('currency') || "$");
+  const transRef = useRef();
 
   const getContent = async ()=>{
     const get = await JSON.parse(localStorage.getItem('data')) || [];
     setTransactions(get);
   }
+
+  const handleScroll = () => {
+    if(transRef.current){
+        transRef.current.scrollIntoView({behaviour: 'smooth', block: 'start'})
+    }
+}
 
   const handleCurrency = (currency) => {
     localStorage.setItem('currency', currency);
@@ -117,6 +124,8 @@ function App() {
         retrieveCur={retrieveCur} 
         getContent={getContent} 
         handleDelete={handleDelete}
+        transRef={transRef}
+        handleScroll={handleScroll}
       />
 
       <AddTransaction 

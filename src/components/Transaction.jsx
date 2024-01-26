@@ -1,7 +1,7 @@
 import { useEffect, useRef } from "react";
 
-const Transaction = ({transactions, getContent, handleDelete, retrieveCur}) => {
-    const transRef = useRef();
+const Transaction = ({transactions, getContent, handleScroll, handleDelete, retrieveCur, transRef}) => {
+    // const transRef = useRef();
 
     const redStyle = {
         color: 'rgb(160, 4, 4)'
@@ -10,14 +10,6 @@ const Transaction = ({transactions, getContent, handleDelete, retrieveCur}) => {
     const greenStyle = {
         color: 'rgb(2, 69, 2)'
     }
-    
-    const handleScroll = () => {
-        if(transRef.current){
-            transRef.current.scrollIntoView({behaviour: 'smooth', block: 'start'})
-        }
-    }
-
-    handleScroll();
 
     useEffect(()=>{
         const unsub = getContent();
